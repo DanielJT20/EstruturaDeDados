@@ -1,0 +1,14 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+int main() {
+    int x;
+    float y; 
+
+    cin >> x >> y ;
+    float total = x / y; 
+    cout << fixed << setprecision(3) << total << " km/l" << endl;
+
+    return 0;
+}
