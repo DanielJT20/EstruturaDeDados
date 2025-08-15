@@ -1,8 +1,11 @@
 {
     "files.associations": {
+        "*.dbclient-js": "javascript",
         "iostream": "cpp",
         "xstring": "cpp",
         "iomanip": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "ostream": "cpp",
+        "xiosbase": "cpp"
     }
 }
