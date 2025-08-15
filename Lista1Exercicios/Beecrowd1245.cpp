@@ -1,24 +1,22 @@
 #include <iostream>
-#include <map>
-#include <string>
 using namespace std;
 
 int main() {
     int N;
     while (cin >> N) {
-        map<int, pair<int, int>> boots; // {size, {left, right}}
+        int left[61] = {0}, right[61] = {0};
         for (int i = 0; i < N; ++i) {
             int size;
             char side;
             cin >> size >> side;
             if (side == 'E')
-                boots[size].first++;
+                left[size - 30]++;
             else
-                boots[size].second++;
+                right[size - 30]++;
         }
         int pairs = 0;
-        for (auto &b : boots) {
-            pairs += min(b.second.first, b.second.second);
+        for (int i = 0; i <= 30; ++i) {
+            pairs += min(left[i], right[i]);
         }
         cout << pairs << endl;
     }

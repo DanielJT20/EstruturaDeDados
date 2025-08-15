@@ -6,6 +6,8 @@
         "iomanip": "cpp",
         "ios": "cpp",
         "ostream": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "utility": "cpp",
+        "map": "cpp"
     }
 }
