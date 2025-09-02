@@ -1,35 +1,32 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // Necessário para std::sort
-#include <limits> // Necessário para std::numeric_limits
+#include <algorithm>
+#include <limits>
 
 using namespace std;
 
 int main() {
     int n;
     while (cin >> n && n != 0) {
-        vector<int> original_killer(n);
+        vector<int> killer(n);
         for (int i = 0; i < n; ++i) {
-            cin >> original_killer[i];
+            cin >> killer[i];
         }
 
-        // Cria uma cópia do vetor original para ordenação
-        vector<int> sorted_killer = original_killer;
-        sort(sorted_killer.begin(), sorted_killer.end());
+        vector<int> killer2 = killer;
+        sort(killer2.begin(), killer2.end());
 
-        // O segundo maior valor estará no penúltimo índice do vetor ordenado
-        int second_largest_value = sorted_killer[n - 2];
+        int killernum = killer2[n - 2];
 
-        // Encontra o índice do segundo maior valor no vetor original
-        int second_largest_index = -1; // Inicializa com -1 para indicar que não foi encontrado
+        int killerposi = -1;
         for (int i = 0; i < n; ++i) {
-            if (original_killer[i] == second_largest_value) {
-                second_largest_index = i + 1; // Adiciona 1 para o índice ser baseado em 1, como é comum em problemas de programação competitiva
-                break; // Encerra o loop assim que o valor é encontrado
+            if (killer[i] == killernum) {
+                killerposi = i + 1; 
+                break;
             }
         }
 
-        cout << second_largest_index << endl;
+        cout << killerposi << endl;
     }
 
     return 0;
