@@ -8,22 +8,19 @@ int main() {
 
     int jogadores_regulares = 0;
 
-    // Loop para cada jogador
     for (int i = 0; i < N; ++i) {
-        bool fez_gol_em_todas = true;
+        bool fez_gols = true;
 
-        // Loop para cada partida
         for (int j = 0; j < M; ++j) {
             int gols;
             cin >> gols;
 
             if (gols == 0) {
-                fez_gol_em_todas = false;
+                fez_gols = false;
             }
         }
-        
-        // Se a variável booleana for true, incrementa o contador
-        if (fez_gol_em_todas) {
+
+        if (fez_gols) {
             jogadores_regulares++;
         }
     }
