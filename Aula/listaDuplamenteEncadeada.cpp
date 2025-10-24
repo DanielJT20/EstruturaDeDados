@@ -4,23 +4,26 @@ using namespace std;
 class No{
     public:
     No *proximo;
+    No *anterior;
         int info;
 
-        No(int i = 0, No *p = nullptr){
+        No(int i = 0, No *p = nullptr, No *a = nullptr){
             this->info = i;
             this->proximo = p;
+            this->anterior = a;
         }
 };
 
-class ListaEncadeada{
+class ListaDuplamenteEncadeada{
     public:
     No *head = nullptr;
-    ListaEncadeada(){
-        this->head = nullptr; // corrigido: sem nó sentinela
+    ListaDuplamenteEncadeada(){
+        this->head = nullptr;
     }
     void addInicio(int x){
         No *novo = new No(x);
         novo->proximo = head;
+        if (head) head->anterior = novo;
         head = novo;
     }
     void addFim(int x){
@@ -31,6 +34,7 @@ class ListaEncadeada{
             p = p->proximo;
         }
         p->proximo = novo;
+        novo->anterior = p;
     }
     bool busca(int x){
         No *p = head;
@@ -49,6 +53,7 @@ class ListaEncadeada{
         if (head->info == x){
             No *aux = head;
             head = head->proximo;
+            if(head) head->anterior = nullptr;
             delete aux;
             return;
         }
@@ -58,7 +63,7 @@ class ListaEncadeada{
             prev = p;
             p = p->proximo;
         }
-        if (p == nullptr) return; // não encontrado
+        if (p == nullptr) return;
         prev->proximo = p->proximo;
         delete p;
     }
@@ -73,7 +78,7 @@ class ListaEncadeada{
 };
  
 int main(){
-    ListaEncadeada lista;
+    ListaDuplamenteEncadeada lista;
     lista.addInicio(1);
     lista.addInicio(2);
     lista.addInicio(3);
