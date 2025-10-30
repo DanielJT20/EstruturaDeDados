@@ -16,7 +16,7 @@ class ListaEncadeada{
     public:
     No *head = nullptr;
     ListaEncadeada(){
-        this->head = nullptr; // corrigido: sem nó sentinela
+        this->head = nullptr; 
     }
     void addInicio(int x){
         No *novo = new No(x);
@@ -32,6 +32,7 @@ class ListaEncadeada{
         }
         p->proximo = novo;
     }
+   
     bool busca(int x){
         No *p = head;
         while (p != nullptr)
@@ -58,7 +59,7 @@ class ListaEncadeada{
             prev = p;
             p = p->proximo;
         }
-        if (p == nullptr) return; // não encontrado
+        if (p == nullptr) return;
         prev->proximo = p->proximo;
         delete p;
     }
@@ -70,6 +71,15 @@ class ListaEncadeada{
         }
         cout << endl;
     }
+     int contador(){
+        int count = 0;
+        No *p = head;
+        while (p != nullptr){
+            count++;
+            p = p-> proximo;
+        }
+        return count;
+    }
 };
  
 int main(){
@@ -77,8 +87,10 @@ int main(){
     lista.addInicio(1);
     lista.addInicio(2);
     lista.addInicio(3);
-    lista.print(); // saída: 3 2 1
+    lista.print();
+    cout << "Tamanho " << lista.contador() << endl;
     lista.remove(2);
-    lista.print(); // saída: 3 1
+    lista.print();
+    cout << "Tamanho " << lista.contador() << endl;
     return 0;
 }
