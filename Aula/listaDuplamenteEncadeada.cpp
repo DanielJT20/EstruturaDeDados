@@ -82,8 +82,8 @@ int main(){
     lista.addInicio(1);
     lista.addInicio(2);
     lista.addInicio(3);
-    lista.print(); // saída: 3 2 1
+    lista.print();
     lista.remove(2);
-    lista.print(); // saída: 3 1
+    lista.print();
     return 0;
 }

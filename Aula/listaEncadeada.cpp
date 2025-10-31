@@ -125,6 +125,7 @@ int main(){
     lista.addFim(3);
     lista.addFim(2);
     lista.addFim(1);
+    lista.busca(2) ? cout << "Encontrado\n" : cout << "Nao encontrado\n";
     lista.print();
     cout << "Tamanho " << lista.contador() << endl;
     lista.removeDuplicatas();
