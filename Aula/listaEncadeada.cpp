@@ -25,6 +25,10 @@ class ListaEncadeada{
     }
     void addFim(int x){
         No *novo = new No(x);
+          if (head == nullptr) {
+            head = novo;
+            return;
+        }
         No *p = head;
         while (p->proximo != nullptr)
         {
@@ -63,6 +67,36 @@ class ListaEncadeada{
         prev->proximo = p->proximo;
         delete p;
     }
+   void removeDuplicatas() {
+        No* p = head;
+        while (p != nullptr) {
+            No* prev = p;
+            No* q = p->proximo;
+            while (q != nullptr) {
+                if (q->info == p->info) {
+                    prev->proximo = q->proximo;
+                    delete q;
+                    q = prev->proximo;
+                } else {
+                    prev = q;
+                    q = q->proximo;
+                }
+            }
+            p = p->proximo;
+        }
+    }
+    void inverte(){
+        No *prev = nullptr;
+        No *atual = head;
+        No *next = nullptr;
+        while (atual != nullptr){
+            next = atual->proximo;
+            atual->proximo = prev;
+            prev = atual;
+            atual = next;
+        }
+         head = prev;
+    }
      void print(){
         No *p = head;
         while(p){
@@ -87,9 +121,13 @@ int main(){
     lista.addInicio(1);
     lista.addInicio(2);
     lista.addInicio(3);
+    lista.addFim(4);
+    lista.addFim(3);
+    lista.addFim(2);
+    lista.addFim(1);
     lista.print();
     cout << "Tamanho " << lista.contador() << endl;
-    lista.remove(2);
+    lista.removeDuplicatas();
     lista.print();
     cout << "Tamanho " << lista.contador() << endl;
     return 0;
