@@ -36,7 +36,6 @@ class Tree{
         }
     }
 
-    // percurso preorder (raiz, esq, dir)
     void preorder(No* n){
         if(!n) return;
         cout << n->dado << " ";
@@ -53,7 +52,6 @@ class Tree{
     }
     void inorder(){ inorder(raiz); cout << endl; }
 
-    // percurso postorder (esq, dir, raiz)
     void posorder(No* n){
         if(!n) return;
         posorder(n->E);
